@@ -1,0 +1,23 @@
+<div class='container w-50 rounded p-2' style="background-color: #E6E6FA;">
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-success">
+      <%= msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+  <div class="d-flex align-items-center">
+    <h1 class="me-3"><%= @article.title  %></h1>
+    <%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe,
+          edit_article_path(@article)%>
+    <div class="m-2">|</div>
+    <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe,
+          article_path(@article),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+  </div>
+  <hr>
+  <p>- <%= @article.content  %> -</p>
+  <hr>
+  <a href="/articles">Back</a>
+</div>

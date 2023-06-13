@@ -1,0 +1,10 @@
+<div class="container p-2">
+  <%= form_with model: @article, class:"form-group" do |f|%>
+    <%= f.label :title %>
+    <%= f.text_field :title, class:"form-control m-1" %>
+    <%= f.label :content %>
+    <%= f.text_area :content, class:"form-control m-1" %>
+    <br>
+    <%= f.submit%>
+  <% end %>
+</div>
